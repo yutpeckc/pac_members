@@ -1,6 +1,10 @@
 class PasswordResetsController < ApplicationController
 skip_before_filter :require_login
 
+  def new
+
+  end
+
   # request password reset.
   # you get here when the user entered his email in the reset password form and submitted it.
   def create 
