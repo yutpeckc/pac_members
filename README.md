@@ -3,7 +3,7 @@
 
 To do 
 
-* Add new fields to user
+* DONE-- Add new fields to user
 	* membership_expiration date
 	* stripe customer_id
 	* subscription_id
@@ -12,6 +12,6 @@ To do
 	* First and Last name
 	* Any other fields from the original form on SquareSpace?
 
-* Auto email two weeks ahead of expiration
-* HTTPS?
-* Active Admin?
+* Add Active Admin
+* Auto email two weeks ahead of expiration - use "whenever" gem
+* HTTPS? - probably don't need with Stripe checkout.js
