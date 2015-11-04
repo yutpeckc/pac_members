@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   get 'charges/new'
 
-  get 'charges/create'
+  post 'charges/create'
 
   root :to => 'users#index'
 

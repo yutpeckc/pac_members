@@ -1,22 +1,18 @@
-<% content_for :head do %>
-  	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-  	<script type="text/javascript">
-  		Stripe.setPublishableKey(<%= ENV["STRIPE_KEY"] %>);
-	</script>
+<% @plans.each do |p| %>
+  <%= form_tag("/charges/create", method: "post") do %>
+    <%= hidden_field_tag(:plan_id, p.id) %>
+    <%= hidden_field_tag(:plan_stripe_id, p.plan_stripe_id) %>
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= ENV["STRIPE_KEY"] %>"
+      data-panel-label="Complete Purchase"
+      data-label="Purchase"
+      data-allow-remember-me="false"
+      data-name="The Pacific Club"
+      data-description="<%= p.name %>"
+      data-amount="<%= p.price %>"
+      data-email="<%= current_user.email %>"
+      data-locale="auto">
+    </script>
+  <% end %>
 <% end %>
-
-<form action="/charge" method="POST">
-	hello
-	<script
-		src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-		data-key="<%= ENV["STRIPE_KEY"] %>"
-    data-panel-label="Complete Purchase"
-    data-label="Purchase"
-    data-allow-remember-me="false"
-		data-name="The Pacific Club"
-		data-description="FIX THIS1"
-		data-amount="FIX THIS2"
-    data-email="<%= current_user.email %>"
-		data-locale="auto">
-	</script>
-</form>
