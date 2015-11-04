@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'charges/new'
+
+  get 'charges/create'
+
   root :to => 'users#index'
 
   resources :password_resets

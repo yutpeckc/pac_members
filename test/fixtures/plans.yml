@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plan_stripe_id: MyString
+  active: false
+  price: 1
+  name: MyString
+
+two:
+  plan_stripe_id: MyString
+  active: false
+  price: 1
+  name: MyString

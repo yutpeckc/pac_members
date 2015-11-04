@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027015200) do
+ActiveRecord::Schema.define(version: 20151104035703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "plans", force: :cascade do |t|
+    t.string   "plan_stripe_id"
+    t.boolean  "active"
+    t.integer  "price"
+    t.string   "name"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                           null: false
@@ -25,9 +34,18 @@ ActiveRecord::Schema.define(version: 20151027015200) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.string   "stripe_customer_id"
+    t.datetime "membership_expiration"
+    t.boolean  "auto_renew"
+    t.string   "subscription_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "plan_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["plan_id"], name: "index_users_on_plan_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
 
+  add_foreign_key "users", "plans"
 end
