@@ -11,7 +11,7 @@
     <div>
       <%= p.name %>
       <%= number_to_currency(p.price / 100) %> / year
-      <%= form_tag("/charges/create", method: "post") do %>
+      <%= form_tag("/subscribe", method: "post") do %>
         Auto_bill? <%= check_box_tag "auto_bill", true, true %>
         <%= hidden_field_tag(:plan_id, p.id) %>
         <%= hidden_field_tag(:plan_stripe_id, p.plan_stripe_id) %>
