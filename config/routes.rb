@@ -1,16 +1,25 @@
 Rails.application.routes.draw do
   
-  get 'charges/new'
+  get 'subscribe' => 'charges#new', :as => :subscribe
+  post 'subscribe' => 'charges#create'
 
-  post 'charges/create'
+  root :to => 'users#new'
 
-  root :to => 'users#index'
+  get 'reset-password' => 'password_resets#new', :as => :new_password_reset
+  post 'reset-password' => 'password_resets#create', :as => :password_resets
+  get 'reset-password/:id' => 'password_resets#edit', :as => :password_reset
+  patch 'reset-password/:id' => 'password_resets#update'
+  put 'reset-password/:id' => 'password_resets#update'
+  
+  get 'sign-up' => 'users#new', :as => :new_user
+  post 'sign-up' => 'users#create', :as => :users
 
-  resources :password_resets
-  resources :user_sessions
-  resources :users
+  get 'profile' => 'users#edit', :as => :user
+  patch 'profile' => 'users#update'
+  put 'profile' => 'users#update'
 
   get 'login' => 'user_sessions#new', :as => :login
+  post 'login' => 'user_sessions#create'
   post 'logout' => 'user_sessions#destroy', :as => :logout
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

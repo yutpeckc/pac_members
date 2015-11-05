@@ -3,8 +3,10 @@
 
 To do 
 
-* Figure out how to handle people who have already paid, and prevent them from paying early (probably just not allow anyone who's prior to expiration to pay, this is simplest, with different messages. maybe the way you email is 2 weeks ahead for subscribers, and when it expires for anyone who wasn't subscribed)
+* DONE-- Figure out how to handle people who have already paid, and prevent them from paying early (probably just not allow anyone who's prior to expiration to pay, this is simplest, with different messages. maybe the way you email is 2 weeks ahead for subscribers, and when it expires for anyone who wasn't subscribed)
 * Re-do routes to only use what you need
+* Abstract out the functionality for the stripe charging into a service
+* Add first and last name to sign up
 * Auto email two weeks ahead of expiration - use "whenever" gem
 * Create cancel subscription page
 * Style everything
