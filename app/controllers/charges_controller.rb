@@ -15,7 +15,7 @@ class ChargesController < ApplicationController
         :card => params[:stripeToken],
         :plan => plan.plan_stripe_id
       )      
-      current_user.update_sub_info({plan: plan, expiration: 1.year.from_now, customer_id: customer.id, auto_bill: true})
+      current_user.update_sub_info({plan: plan.id, expiration: 1.year.from_now, customer_id: customer.id, auto_bill: true})
     else
       customer = Stripe::Customer.create(
         :email => current_user.email,
@@ -28,7 +28,7 @@ class ChargesController < ApplicationController
         :description => plan.name,
         :currency => 'cad'
       )
-      current_user.update_sub_info({plan: plan, expiration: 1.year.from_now, customer_id: customer.id, auto_bill: false})      
+      current_user.update_sub_info({plan: plan.id, expiration: 1.year.from_now, customer_id: customer.id, auto_bill: false})      
     end
   
     rescue Stripe::CardError => e

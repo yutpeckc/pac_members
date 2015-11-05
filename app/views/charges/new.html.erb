@@ -1,23 +1,33 @@
-<% @plans.each do |p| %>
-  <div>
-    <%= p.name %>
-    <%= number_to_currency(p.price / 100) %> / year
-    <%= form_tag("/charges/create", method: "post") do %>
-      Auto_bill? <%= check_box_tag "auto_bill", true, true %>
-      <%= hidden_field_tag(:plan_id, p.id) %>
-      <%= hidden_field_tag(:plan_stripe_id, p.plan_stripe_id) %>
-      <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= ENV["STRIPE_KEY"] %>"
-        data-panel-label="Complete Purchase"
-        data-label="Purchase"
-        data-allow-remember-me="false"
-        data-name="The Pacific Club"
-        data-description="<%= p.name %>"
-        data-amount="<%= p.price %>"
-        data-email="<%= current_user.email %>"
-        data-locale="auto">
-      </script>
-    <% end %>
-  </div>
+<% if current_user.membership_expiration && current_user.membership_expiration > Time.now && current_user.auto_renew == true %>
+
+  Hey - your membership will auto-renew on <%= current_user.membership_expiration.strftime("%B #{current_user.membership_expiration.day.ordinalize}, %Y") %>. If you'd like to cancel please click here.
+
+<% elsif current_user.membership_expiration && current_user.membership_expiration > Time.now && current_user.auto_renew == false %>
+
+  Hey - your membership will expire on <%= current_user.membership_expiration.strftime("%B #{current_user.membership_expiration.day.ordinalize}, %Y") %>. But don't worry, we'll email you as soon as it does so you can renew.
+
+<% else %>
+  <% @plans.each do |p| %>
+    <div>
+      <%= p.name %>
+      <%= number_to_currency(p.price / 100) %> / year
+      <%= form_tag("/charges/create", method: "post") do %>
+        Auto_bill? <%= check_box_tag "auto_bill", true, true %>
+        <%= hidden_field_tag(:plan_id, p.id) %>
+        <%= hidden_field_tag(:plan_stripe_id, p.plan_stripe_id) %>
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= ENV["STRIPE_KEY"] %>"
+          data-panel-label="Complete Purchase"
+          data-label="Purchase"
+          data-allow-remember-me="false"
+          data-name="The Pacific Club"
+          data-description="<%= p.name %>"
+          data-amount="<%= p.price %>"
+          data-email="<%= current_user.email %>"
+          data-locale="auto">
+        </script>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
