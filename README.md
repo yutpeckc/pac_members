@@ -7,14 +7,14 @@ To do
 * DONE-- Re-do routes to only use what you need
 * DONE-- Abstract out the functionality for the stripe charging into a service
 * DONE-- Add first and last name to sign up
-* Auto email two weeks ahead of expiration - use "whenever" gem. 3 cases: on membership and will renew (link to cancel), off membership and will expire, off membership and has expired
+* NEED TO CONFIRM-- Auto email two weeks ahead of expiration - use "whenever" gem. 3 cases: on membership and will renew (link to cancel), off membership and will expire, off membership and has expired
   * DONE-- Create Mailer
   * DONE-- Create functions to send separate emails
   * DONE-- Add method function to scan all users
   * DONE-- Add whenever job
 * DONE-- Rather than create, force it on the backend so we can ask why people are cancelling, create an admin tool to do it. Create cancel subscription page (remove 'auto_renew' from field)
 * Style everything
-* Set up mandrill
+* Set up mandrill - test this on a deployed server first to see if the emails actually send.
 * Add Active Admin
 * Enable receipt emails from Stripe
 * Add cron job to let people opt in to auto-charge their CC and add to subscription if not on renewing plan? -> this is for the two weeks out prior to expiration thing, this also requires you to edit the mailer
