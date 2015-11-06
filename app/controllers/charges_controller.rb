@@ -20,4 +20,8 @@ class ChargesController < ApplicationController
 
   end
 
+  def renew
+    @plan = current_user.plan_id
+  end
+
 end

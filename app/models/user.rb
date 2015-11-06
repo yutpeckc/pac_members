@@ -14,20 +14,12 @@ class User < ActiveRecord::Base
   def self.scan_for_expirations
     all.each do |u|
       if u.membership_expiration < 2.weeks.from_now && u.auto_renew
-        u.send_two_week_warning(true)
+        UserMailer.two_week_reminder_renewing(u).deliver_now
       elsif u.membership_expiration < 2.weeks.from_now && !u.auto_renew
-        u.send_two_week_warning(false)
+        UserMailer.two_week_reminder_non_renewing(u).deliver_now
       elsif u.membership_expiration < Time.now && u.auto_renew
-        u.send_expired_notice
+        UserMailer.expiration_notice(u).deliver_now
       end
     end
-  end
-
-  def send_two_week_warning(renewing?)
-
-  end
-
-  def send_expired_notice
-
   end
 end

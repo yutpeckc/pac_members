@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   get 'subscribe' => 'charges#new', :as => :subscribe
   post 'subscribe' => 'charges#create'
+  get 'subscribe/renew' => 'charges#renew', :as => :renew
 
   root :to => 'users#new'
 

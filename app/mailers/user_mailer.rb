@@ -10,6 +10,24 @@ class UserMailer < ApplicationMailer
     @url = edit_password_reset_url(@user.reset_password_token)
     mail(:to => user.email,
     	:subject => "Your Pacific Club password has been reset")
-    
   end
+
+  def two_week_reminder_renewing(user)
+    @user = user
+    mail(:to => user.email,
+      :subject => "Your Pacific Club Membershp is renewing soon")    
+  end
+
+  def two_week_reminder_non_renewing(user)
+    @user = user
+    mail(:to => user.email,
+      :subject => "Your Pacific Club Membership is expiring soon")    
+  end
+
+  def expiration_notice(user)
+    @user = user
+    mail(:to => user.email,
+      :subject => "Your Pacific Club Membership has expired")
+  end
+
 end

@@ -1,0 +1,9 @@
+Hey <%= @user.first_name %>,
+
+This is just a friendly reminder that your membership is set to expire on <%= @user.membership_expiration.strftime("%B #{@user.membership_expiration.day.ordinalize}, %Y") %>. You don't need to do anything right now - we just wanted to let you know ahead of time. 
+
+When your membership does expire we'll send you email with instructions on how to renew. 
+
+Thanks!
+
+The Pacific Club

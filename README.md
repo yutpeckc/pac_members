@@ -8,15 +8,16 @@ To do
 * DONE-- Abstract out the functionality for the stripe charging into a service
 * DONE-- Add first and last name to sign up
 * Auto email two weeks ahead of expiration - use "whenever" gem. 3 cases: on membership and will renew (link to cancel), off membership and will expire, off membership and has expired
-  * Create Mailer
-  * Create functions to send separate emails
+  * DONE-- Create Mailer
+  * DONE-- Create functions to send separate emails
   * DONE-- Add method function to scan all users
   * DONE-- Add whenever job
-* Create cancel subscription page (remove 'auto_renew' from field)
+* DONE-- Rather than create, force it on the backend so we can ask why people are cancelling, create an admin tool to do it. Create cancel subscription page (remove 'auto_renew' from field)
 * Style everything
 * Set up mandrill
 * Add Active Admin
-* Add cron job to let people opt in to auto-charge their CC and add to subscription if not on renewing plan? -> this is for the two weeks out prior to expiration thing
+* Enable receipt emails from Stripe
+* Add cron job to let people opt in to auto-charge their CC and add to subscription if not on renewing plan? -> this is for the two weeks out prior to expiration thing, this also requires you to edit the mailer
 
 * DONE-- Add new fields to user
 	* membership_expiration date
@@ -28,3 +29,10 @@ To do
 	* Any other fields from the original form on SquareSpace?
 
 * HTTPS? - probably don't need with Stripe checkout.js
+
+* All the other integrations
+  * Mailchimp
+  * Square
+  * Picatic
+
+* Sign in webpage on tablet for events? (Works w/ Picatic + our membership db?) Or is Picatic just good enough

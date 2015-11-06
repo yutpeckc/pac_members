@@ -1,0 +1,23 @@
+<% if current_user.membership_expiration < Time.now %>
+  <div>
+    <%= @plan.name %>
+    <%= number_to_currency(@plan.price / 100) %> / year
+    <%= form_tag("/subscribe", method: "post") do %>
+      Auto_bill? <%= check_box_tag "auto_bill", true, true %>
+      <%= hidden_field_tag(:plan_id, @plan.id) %>
+      <%= hidden_field_tag(:plan_stripe_id, @plan.plan_stripe_id) %>
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= ENV["STRIPE_KEY"] %>"
+        data-panel-label="Complete Purchase"
+        data-label="Renew"
+        data-allow-remember-me="false"
+        data-name="The Pacific Club"
+        data-description="<%= @plan.name %>"
+        data-amount="<%= @plan.price %>"
+        data-email="<%= current_user.email %>"
+        data-locale="auto">
+      </script>
+    <% end %>
+  </div>
+<% end %>

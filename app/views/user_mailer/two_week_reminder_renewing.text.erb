@@ -1,0 +1,9 @@
+Hey <%= @user.first_name %>,
+
+This is just a friendly reminder that your membership will automatically renew on <%= @user.membership_expiration.strftime("%B #{@user.membership_expiration.day.ordinalize}, %Y") %>. Don't worry - you don't need to do anything! Just sit back, relax, and keep an eye on your inbox for the receipt.
+
+If you don't want to renew your membership just reply to this email and let us know.
+
+Thanks!
+
+The Pacific Club
