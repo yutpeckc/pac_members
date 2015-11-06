@@ -1,6 +1,15 @@
 class ChargesController < ApplicationController
   def new
     @plans = Plan.all.where(active: true)
+    @size = 4
+    case @plans.count
+    when 1
+      @offset = 4
+    when 2
+      @offset = 2
+    else
+      @offset = 0
+    end
   end
 
   def create

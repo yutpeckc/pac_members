@@ -13,7 +13,8 @@ To do
   * DONE-- Add method function to scan all users
   * DONE-- Add whenever job
 * DONE-- Rather than create, force it on the backend so we can ask why people are cancelling, create an admin tool to do it. Create cancel subscription page (remove 'auto_renew' from field)
-* Style everything
+
+* DONE-- Style everything
 * Set up mandrill - test this on a deployed server first to see if the emails actually send.
 * DONE-- Add Active Admin
 * Enable receipt emails from Stripe (when live)

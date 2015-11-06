@@ -14,3 +14,49 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar {
+  background-color: #333;
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  border: 0;
+  border-radius: 0;
+  a{
+    color: #fff !important;
+    text-transform: uppercase;
+    &:hover{
+      color: #ccc;
+    }
+  }
+}
+
+.panel{
+  h3{
+    margin: 10px;
+  }
+  h4{
+    margin-bottom: 0px;
+    margin-top: 25px;
+  }
+  background-color: #eee;
+  padding: 10px;
+}
+
+.purchase-button{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.btn{
+  background-color: #36b3a8;
+  border: 0;
+  color: #fff;
+  &:hover{
+    background-color: lighten(#36b3a8, 10%);
+    color: #fff;
+  }
+}
+
+.btn-padded{
+  margin-top: 15px;
+}
