@@ -24,4 +24,18 @@ class StripeService
       customer
   end
 
+  def self.sync_plans
+    plans = Stripe::Plan.all.data
+    plans.each do |p|
+      current = Plan.find_by_plan_stripe_id(p.id)
+      if current.nil?
+        Plan.create(plan_stripe_id: p.id, price: p.amount, name: p.name, active: false)
+      else
+        current.price = p.amount
+        current.name = p.name
+        current.save
+      end
+    end
+  end
+
 end

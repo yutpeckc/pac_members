@@ -15,8 +15,8 @@ To do
 * DONE-- Rather than create, force it on the backend so we can ask why people are cancelling, create an admin tool to do it. Create cancel subscription page (remove 'auto_renew' from field)
 * Style everything
 * Set up mandrill - test this on a deployed server first to see if the emails actually send.
-* Add Active Admin
-* Enable receipt emails from Stripe
+* DONE-- Add Active Admin
+* Enable receipt emails from Stripe (when live)
 * Add cron job to let people opt in to auto-charge their CC and add to subscription if not on renewing plan? -> this is for the two weeks out prior to expiration thing, this also requires you to edit the mailer
 
 * DONE-- Add new fields to user

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get 'subscribe' => 'charges#new', :as => :subscribe
   post 'subscribe' => 'charges#create'
   get 'subscribe/renew' => 'charges#renew', :as => :renew
