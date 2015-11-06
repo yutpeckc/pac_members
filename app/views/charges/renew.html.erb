@@ -1,4 +1,4 @@
-<% if current_user.membership_expiration < Time.now %>
+<% if current_user.membership_expiration.present? && current_user.membership_expiration < Time.now %>
   <div>
     <%= @plan.name %>
     <%= number_to_currency(@plan.price / 100) %> / year
@@ -20,4 +20,6 @@
       </script>
     <% end %>
   </div>
+<% else %>
+  Hey, your subscription isn't up for renewal yet - hang tight!
 <% end %>

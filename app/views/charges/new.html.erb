@@ -1,8 +1,8 @@
-<% if current_user.membership_expiration && current_user.membership_expiration > Time.now && current_user.auto_renew == true %>
+<% if current_user.membership_expiration.present? && current_user.membership_expiration > Time.now && current_user.auto_renew == true %>
 
   Hey - your membership will auto-renew on <%= current_user.membership_expiration.strftime("%B #{current_user.membership_expiration.day.ordinalize}, %Y") %>. If you'd like to cancel please click here.
 
-<% elsif current_user.membership_expiration && current_user.membership_expiration > Time.now && current_user.auto_renew == false %>
+<% elsif current_user.membership_expiration.present? && current_user.membership_expiration > Time.now && current_user.auto_renew == false %>
 
   Hey - your membership will expire on <%= current_user.membership_expiration.strftime("%B #{current_user.membership_expiration.day.ordinalize}, %Y") %>. But don't worry, we'll email you as soon as it does so you can renew.
 
