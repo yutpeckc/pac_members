@@ -22,4 +22,10 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def self.email_q
+    u = User.find(1)
+    pwd = SecureRandom.urlsafe_base64(5)
+    UserMailer.created_account(user,pwd)
+  end
 end
