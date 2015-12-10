@@ -45,6 +45,6 @@ To do
 * Sign in webpage on tablet for events? (Works w/ Picatic + our membership db?) Or is Picatic just good enough
 * Auto generate promo codes for users during events
 
-* Phone numbers and mailing addresses -> add fields
+* Phone numbers and mailing addresses -> add fields to sign up screens
 * Create csv importer for old people <- add the actual stripe plans first to save yourself some god damn hassle!
-* Create "youve been signed up here's your password" email
+* Create "youve been signed up here's your password" email, and boot them to the "contact info" page for them to fill out. You should probably draw a flow diagram for the different situations

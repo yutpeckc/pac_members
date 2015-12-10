@@ -30,4 +30,11 @@ class UserMailer < ApplicationMailer
       :subject => "Your Pacific Club Membership has expired")
   end
 
+  def created_account(user,pwd)
+    @user = user
+    @pwd = pwd
+    mail(:to => user.email
+      :subject => "Your Pacific Club Membership Login Details")
+  end
+
 end
