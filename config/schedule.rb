@@ -19,10 +19,10 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day, :at => '2:00 pm' do
-  runner "User.scan_for_expirations"
-end
+# every 1.day, :at => '2:00 pm' do
+#   runner "User.scan_for_expirations"
+# end
 
-every :minute do
-  runner "User.email_q"
-end
+# every :minute do
+#   runner "User.email_q"
+# end
