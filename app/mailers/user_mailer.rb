@@ -33,7 +33,7 @@ class UserMailer < ApplicationMailer
   def created_account(user,pwd)
     @user = user
     @pwd = pwd
-    mail(:to => user.email
+    mail(:to => user.email,
       :subject => "Your Pacific Club Membership Login Details")
   end
 
