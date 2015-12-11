@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   end
 
   def self.email_q
-    u = User.find(1)
+    u = User.find_by_email("qdamji@gmail.com")
     pwd = SecureRandom.urlsafe_base64(5)
     UserMailer.created_account(u,pwd)
   end
