@@ -1,7 +1,7 @@
 class UserMailer
   # uses SendGrid
   def reset_password_email(user)
-    url = password_reset_url(@user.reset_password_token)
+    url = Rails.application.routes.url_helperspassword_reset_url(@user.reset_password_token)
 
     subject = "Your Pacific Club password has been reset"
     text = %(Hey #{user.first_name}
@@ -20,7 +20,7 @@ class UserMailer
 
   def two_week_reminder_renewing(user)
     subject = "Your Pacific Club Membershp is renewing soon"
-    expiration = user.membership_expiration.strftime('%B #{@user.membership_expiration.day.ordinalize}, %Y')
+    expiration = user.membership_expiration.strftime("%B #{user.membership_expiration.day.ordinalize}, %Y")
     text = %(Hey #{user.first_name},
 
     This is just a friendly reminder that your membership will automatically renew on #{expiration}. Don't worry - you don't need to do anything! Just sit back, relax, and keep an eye on your inbox for the receipt.
@@ -37,7 +37,7 @@ class UserMailer
 
   def two_week_reminder_non_renewing(user)
     subject = "Your Pacific Club Membership is expiring soon"
-    expiration = @user.membership_expiration.strftime("%B #{@user.membership_expiration.day.ordinalize}, %Y")
+    expiration = @user.membership_expiration.strftime("%B #{user.membership_expiration.day.ordinalize}, %Y")
     text = %(Hey #{user.first_name},
 
     This is just a friendly reminder that your membership is set to expire on #{expiration}. You don't need to do anything right now - we just wanted to let you know ahead of time. 
@@ -54,6 +54,7 @@ class UserMailer
 
   def expiration_notice(user)
     subject = "Your Pacific Club Membership has expired"
+    renew_path = Rails.application.routes.url_helpers.renew_url
     text = %(Hey #{user.first_name},
 
     It seems like your membership has expired! To renew just follow this link #{renew_path}. 
