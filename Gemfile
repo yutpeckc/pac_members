@@ -30,6 +30,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'whenever', :require => false
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'devise'
+gem 'sendgrid-ruby'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
