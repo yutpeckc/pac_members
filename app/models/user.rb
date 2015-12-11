@@ -26,6 +26,6 @@ class User < ActiveRecord::Base
   def self.email_q
     u = User.find(1)
     pwd = SecureRandom.urlsafe_base64(5)
-    UserMailer.created_account(user,pwd)
+    UserMailer.created_account(u,pwd)
   end
 end
