@@ -12,13 +12,14 @@ class User < ActiveRecord::Base
   belongs_to :plan
 
   def self.scan_for_expirations
+    um = UserMailer.new
     all.each do |u|
       if u.membership_expiration < 2.weeks.from_now && u.auto_renew
-        UserMailer.two_week_reminder_renewing(u).deliver_now
+        um.two_week_reminder_renewing(u).deliver_now
       elsif u.membership_expiration < 2.weeks.from_now && !u.auto_renew
-        UserMailer.two_week_reminder_non_renewing(u).deliver_now
+        um.two_week_reminder_non_renewing(u).deliver_now
       elsif u.membership_expiration < Time.now && u.auto_renew
-        UserMailer.expiration_notice(u).deliver_now
+        um.expiration_notice(u).deliver_now
       end
     end
   end
@@ -26,6 +27,7 @@ class User < ActiveRecord::Base
   def self.email_q
     u = User.find_by_email("qdamji@gmail.com")
     pwd = SecureRandom.urlsafe_base64(5)
-    UserMailer.created_account(u,pwd)
+    um = UserMailer.new
+    um.created_account(u,pwd)
   end
 end
