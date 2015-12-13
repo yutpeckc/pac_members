@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :contact_info, :contact_info_update]
   skip_before_filter :require_login, only: [:index, :new, :create]
 
   # GET /users/new
@@ -52,6 +52,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def contact_info
+
+  end
+
+  def contact_info_update
+    if @user.update(user_params) 
+      redirect_to contact_info_path, notice: 'User was successfully updated.'
+    else
+      render :contact_info
+    end    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -61,7 +73,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name)
+      params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :phone_number, :street_address, :city, :country, :province, :postal_code)
     end
 
 

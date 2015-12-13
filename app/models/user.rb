@@ -30,4 +30,13 @@ class User < ActiveRecord::Base
     um = UserMailer.new
     um.created_account(u,pwd)
   end
+
+  def contact_info_empty?
+    return true if phone_number.nil?
+    return true if street_address.nil?
+    return true if city.nil?
+    return true if province.nil?
+    return true if country.nil?
+    return true if postal_code.nil?
+  end
 end

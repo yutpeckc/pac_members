@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
   def not_authenticated
     redirect_to login_path, alert: "Please login first"
   end  
+
+  def require_login
+    super
+
+    if logged_in? && current_user.contact_info_empty?
+      # render :action => 'contact_info'
+    end
+  end
 end

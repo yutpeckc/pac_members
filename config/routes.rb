@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   patch 'profile' => 'users#update'
   put 'profile' => 'users#update'
 
+  get 'contact-info' => 'users#contact_info', :as => :contact_info
+  patch 'contact-info' => 'users#contact_info_update'
+  put 'contact-info' => 'users#contact_info_update'
+
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => 'user_sessions#create'
   post 'logout' => 'user_sessions#destroy', :as => :logout
