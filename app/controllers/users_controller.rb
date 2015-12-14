@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :contact_info, :contact_info_update]
   skip_before_filter :require_login, only: [:index, :new, :create]
+  skip_before_filter :require_contact_info, only: [:index, :new, :create, :contact_info, :contact_info_update]
 
   # GET /users/new
   def new
@@ -20,10 +21,10 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         auto_login(@user)
-        flash[:success] = "You are successfully logged in!"
+        # flash[:success] = "You are successfully logged in!"
         # redirect_to @user
         # redirect_to(:users, notice: 'User was successfully created')
-        format.html { redirect_to subscribe_path, notice: 'User was successfully created.' }
+        format.html { redirect_to contact_info_path}
         # format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     if @user.update(user_params)
-      redirect_to :user, notice: 'User was successfully updated.'
+      redirect_to :user, notice: 'Updated - thanks!.'
     else
       render :edit
     end
@@ -58,7 +59,11 @@ class UsersController < ApplicationController
 
   def contact_info_update
     if @user.update(user_params) 
-      redirect_to contact_info_path, notice: 'User was successfully updated.'
+      if @user.stripe_customer_id.nil? || (@user.membership_expiration < Time.now)
+        redirect_to subscribe_path
+      else
+        redirect_to contact_info_path, notice: 'Updated - thanks!'
+      end
     else
       render :contact_info
     end    

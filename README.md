@@ -16,7 +16,6 @@ To do
 * DONE-- Rather than create, force it on the backend so we can ask why people are cancelling, create an admin tool to do it. Create cancel subscription page (remove 'auto_renew' from field)
 
 * DONE-- Style everything
-* Set up mandrill - test this on a deployed server first to see if the emails actually send.
 * DONE-- Add Active Admin
 * Enable receipt emails from Stripe (when live)
 * Add cron job to let people opt in to auto-charge their CC and add to subscription if not on renewing plan? -> this is for the two weeks out prior to expiration thing, this also requires you to edit the mailer
@@ -47,4 +46,6 @@ To do
 
 * Phone numbers and mailing addresses -> add fields to sign up screens
 * Create csv importer for old people <- add the actual stripe plans first to save yourself some god damn hassle!
-* Create "youve been signed up here's your password" email, and boot them to the "contact info" page for them to fill out. You should probably draw a flow diagram for the different situations
+* DONE - Create "youve been signed up here's your password" email
+* DONE -Boot them to the "contact info" page for them to fill out. You should probably draw a flow diagram for the different situations
+* Walk through sign up flow to make sure its reasonable

@@ -1,13 +1,13 @@
 <h3>Contact Info</h3>
 
 <div class="panel panel-default col-md-4 col-md-offset-4">
-  <%= form_for(@user, url: {action: "contact_info_update"}) do |f| %>
-    <% if @user.errors.any? %>
+  <%= form_for(current_user, url: {action: "contact_info_update"}) do |f| %>
+    <% if current_user.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <h2><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
         <ul>
-        <% @user.errors.full_messages.each do |message| %>
+        <% current_user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
         </ul>
@@ -25,6 +25,10 @@
       <%= f.label :city %>
       <%= f.text_field :city, class: 'form-control'  %>
     </div>
+    <div class="form-group">
+       <%= f.label :province %>
+       <%= f.text_field :province, class: 'form-control'  %>
+    </div>    
     <div class="form-group">
        <%= f.label :country %>
        <%= f.text_field :country, class: 'form-control'  %>
