@@ -44,8 +44,17 @@ To do
 * Sign in webpage on tablet for events? (Works w/ Picatic + our membership db?) Or is Picatic just good enough
 * Auto generate promo codes for users during events
 
-* Phone numbers and mailing addresses -> add fields to sign up screens
+* DONE - Phone numbers and mailing addresses -> add fields to sign up screens
 * Create csv importer for old people <- add the actual stripe plans first to save yourself some god damn hassle!
 * DONE - Create "youve been signed up here's your password" email
-* DONE -Boot them to the "contact info" page for them to fill out. You should probably draw a flow diagram for the different situations
-* Walk through sign up flow to make sure its reasonable
+* DONE - Boot them to the "contact info" page for them to fill out. You should probably draw a flow diagram for the different situations
+* DONE - Walk through sign up flow to make sure its reasonable
+* DONE - Make sure expired accounts are updated on mailchimp
+* Make sure that if someone pays their mailchimp is set to "member"
+* DONE - Mailchimp first_or_create for when a user is created
+* Verify that "create" with stripe won't create a brand new user if the email is found -> implications for renew
+* Create "Add new account" method for admin dashboard
+* Create "cancel subscription" method for admin dashboard
+* Will users who we remove from subscription going to get another email when they expire?
+* Verify that you're not kicking manually added users to the "please subscribe" page!
+* DONE - Verify that a users expiration will update itself if its autorenewing. Handled in expiration scanner

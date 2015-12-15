@@ -24,6 +24,9 @@ class UsersController < ApplicationController
         # flash[:success] = "You are successfully logged in!"
         # redirect_to @user
         # redirect_to(:users, notice: 'User was successfully created')
+        m = Mailchimp.new
+        m.add_user(@user)
+
         format.html { redirect_to contact_info_path}
         # format.json { render :show, status: :created, location: @user }
       else
@@ -36,7 +39,14 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    different_email = (@user.email != user_params["email"] ? true : false)
+    old_email = @user.email
+
     if @user.update(user_params)
+      if different_email
+        m = Mailchimp.new
+        m.change_email(old_email,@user.email)
+      end
       redirect_to :user, notice: 'Updated - thanks!.'
     else
       render :edit
@@ -47,6 +57,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
+
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
