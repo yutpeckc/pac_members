@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
         um.expiration_notice(u).deliver_now
         m = Mailchimp.new
         m.change_membership(u,"expired")
-      elsif u.membership_expiration < Time.now && u.auto_renew
+      elsif u.membership_expiration < Time.now && u.auto_renew && !u.dont_remind
         #member has rolled over and needs to have expiration date moved out
         expiration = u.membership_expiration + 1.year
         u.update(membership_expiration: expiration)

@@ -50,11 +50,12 @@ To do
 * DONE - Boot them to the "contact info" page for them to fill out. You should probably draw a flow diagram for the different situations
 * DONE - Walk through sign up flow to make sure its reasonable
 * DONE - Make sure expired accounts are updated on mailchimp
-* Make sure that if someone pays their mailchimp is set to "member"
+* DONE - Make sure that if someone pays their mailchimp is set to "member"
 * DONE - Mailchimp first_or_create for when a user is created
 * Verify that "create" with stripe won't create a brand new user if the email is found -> implications for renew
 * Create "Add new account" method for admin dashboard
-* Create "cancel subscription" method for admin dashboard
-* Will users who we remove from subscription going to get another email when they expire?
+* Create "cancel subscription" method for admin dashboard (links to stripe as well)
+* DONE - Will users who we remove from subscription  get another email when they expire? - Added dont_remind field
 * Verify that you're not kicking manually added users to the "please subscribe" page!
 * DONE - Verify that a users expiration will update itself if its autorenewing. Handled in expiration scanner
+* Walk through user flow again?
