@@ -25,16 +25,57 @@ ActiveAdmin.register User do
   filter :created_at
 
   form do |f|
+    panel 'Instructions' do
+      %(To CREATE a User: a new user you only *need* to enter their email, first and last name, expiration, and plan_id. The system will generate a random password. Remember - the membership expiration is 1 YEAR after they joined.
+
+        To EDIT a User: You can edit pretty much everything and anything, but can change one thing at a time (no need to enter passwords either!)
+
+        #{params.inspect} 
+        )
+    end    
     f.inputs "User Details" do
       f.input :email
-      f.input :password
-      f.input :password_confirmation
-      f.input :membership_expiration
-      f.input :plan_id
-      f.input :created_at
+      f.input :password, required: false
+      f.input :password_confirmation, required: false
+      f.input :membership_expiration, required: true
+      f.input :plan, collection: Plan.where(active: true), required: true
+      f.input :first_name
+      f.input :last_name
+      f.input :phone_number
+      f.input :street_address
+      f.input :city
+      f.input :province
+      f.input :country, priority_countries: ["Canada"]
+      f.input :postal_code
     end
     f.actions
   end
 
+  controller do
+
+    def create
+      u = params[:user]
+      if u["membership_expiration(1i)"] == "" || u["membership_expiration(2i)"] == "" || u["membership_expiration(3i)"] == ""
+        flash[:error] = "You must use a valid membership expiration date"
+        redirect_to :back
+      elsif u[:plan_id].nil?
+        flash[:error] = "You must give the user a plan"
+        redirect_to :back
+      else
+        pwd = User.random_md5_pwd
+        u[:password] = pwd
+        u[:password_confirmation] = pwd
+        super
+        if @user.id.present?
+          # if it saves then send the email!
+          um = UserMailer.new
+          um.created_account(@user,pwd)
+        end
+      end
+    end
+    def permitted_params
+      params.permit user: [:email, :password, :password_confirmation, :membership_expiration, :plan, :first_name,:last_name, :phone_number, :street_address, :city, :province, :country, :postal_code]
+    end    
+  end  
 
 end

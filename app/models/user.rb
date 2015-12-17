@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
 
-	validates :email, uniqueness: true	
+	validates :email, uniqueness: true, presence: true
 
   belongs_to :plan
 
@@ -32,6 +32,17 @@ class User < ActiveRecord::Base
         u.update(membership_expiration: expiration)
       end
     end
+  end
+
+  # def self.admin_create(params)
+  #   pwd = SecureRandom.urlsafe_base64(5)
+  #   u = User.new(params)
+  #   u.password = pwd
+  #   u.password_confirmation = pwd
+  # end
+
+  def self.random_md5_pwd
+    SecureRandom.urlsafe_base64(5)
   end
 
   def contact_info_empty?
