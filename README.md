@@ -53,9 +53,10 @@ To do
 * DONE - Make sure that if someone pays their mailchimp is set to "member"
 * DONE - Mailchimp first_or_create for when a user is created
 * DONE - Verify that "create" with stripe won't create a brand new user if the email is found -> implications for renew, it does but this really doesn't matter
-* Modify new user method to create a random password for the user
+* DONE - Modify new user method to create a random password for the user
 * Create "cancel subscription" method for admin dashboard (links to stripe as well)
 * DONE - Will users who we remove from subscription  get another email when they expire? - Added dont_remind field
 * Verify that you're not kicking manually added users to the "please subscribe" page! Provided they've already paid, you can make this part of the "add users" admin function
 * DONE - Verify that a users expiration will update itself if its autorenewing. Handled in expiration scanner
 * Walk through user flow again?
+* Remove random test account emails from Mailchimp

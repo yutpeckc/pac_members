@@ -53,4 +53,13 @@ class User < ActiveRecord::Base
     return true if country.nil?
     return true if postal_code.nil?
   end
+
+  def cancel_subscription
+    #cancel on stripe
+    #update mailchimp membership
+    #turn off auto-renew
+    opts = {auto_renew: false}
+    #add "do not remind" flag if its less than two weeks away -> two reminders, what about the first one then!?
+    update(opts)
+  end
 end

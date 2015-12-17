@@ -16,6 +16,16 @@ ActiveAdmin.register User do
     actions
   end
 
+  collection_action :cancel_sub do
+    u = User.find(params[:id])
+    u.cancel_subscription
+    redirect_to admin_users_path, notice: "Subscription Cancelled!"
+  end  
+
+  action_item :cancel_subscription, only: :show do
+    link_to 'Cancel Subscription', cancel_sub_admin_users_path(id: params[:id]), data: { confirm: "Are you sure?" }
+  end  
+
   filter :email
   filter :first_name
   filter :last_name
