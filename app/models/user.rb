@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     um = UserMailer.new
 
     all.each do |u|
-      if u.membership_expiration < 2.weeks.from_now && u.auto_renew
+      if u.membership_expiration < 2.weeks.from_now && u.auto_renew && !dont_remind
         #subscriber about to renew
         um.two_week_reminder_renewing(u).deliver_now
       elsif u.membership_expiration < 2.weeks.from_now && !u.auto_renew
@@ -34,13 +34,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def self.admin_create(params)
-  #   pwd = SecureRandom.urlsafe_base64(5)
-  #   u = User.new(params)
-  #   u.password = pwd
-  #   u.password_confirmation = pwd
-  # end
-
   def self.random_md5_pwd
     SecureRandom.urlsafe_base64(5)
   end
@@ -55,11 +48,24 @@ class User < ActiveRecord::Base
   end
 
   def cancel_subscription
-    #cancel on stripe
-    #update mailchimp membership
-    #turn off auto-renew
-    opts = {auto_renew: false}
-    #add "do not remind" flag if its less than two weeks away -> two reminders, what about the first one then!?
-    update(opts)
+    if auto_renew
+      #cancel on stripe, proceed if it works
+      if false#StripeService.cancel_subscription(self)    
+        #update mailchimp membership
+        m = Mailchimp.new
+        m.change_membership(self,"canceled")
+        #turn off auto-renew
+        #add "do not remind" flag if cancelled
+        #chosen to assume that if they go out of their way to ask us to cancel, that they really don't want to be a part of this anymore and would not appreciate additional emails
+        opts = {auto_renew: false, dont_remind: true}
+        if update(opts)
+          return true
+        else
+          return false
+        end
+      else
+        return false
+      end
+    end
   end
 end

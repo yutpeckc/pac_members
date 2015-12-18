@@ -18,8 +18,11 @@ ActiveAdmin.register User do
 
   collection_action :cancel_sub do
     u = User.find(params[:id])
-    u.cancel_subscription
-    redirect_to admin_users_path, notice: "Subscription Cancelled!"
+    if u.cancel_subscription
+      redirect_to admin_users_path, notice: "Subscription Cancelled!"
+    else
+      redirect_to admin_user_path(id: params[:id]), error: "There was an error cancelling the subscription"
+    end
   end  
 
   action_item :cancel_subscription, only: :show do

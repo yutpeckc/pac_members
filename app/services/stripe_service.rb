@@ -24,6 +24,18 @@ class StripeService
       customer
   end
 
+  def self.cancel_subscription(user)
+    id = user.stripe_customer_id
+    customer = Stripe::Customer.retrieve(id)
+    subscription = customer.subscriptions.data.first.id
+    res = customer.subscriptions.retrieve(subscription).delete
+    if res.status == "canceled"
+      true
+    else
+      false
+    end
+  end
+
   def self.sync_plans
     plans = Stripe::Plan.all.data
     plans.each do |p|

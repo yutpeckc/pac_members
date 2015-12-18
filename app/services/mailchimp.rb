@@ -7,7 +7,7 @@ class Mailchimp
   end
 
   def change_membership(user,membership)
-    # two options for: member, expired
+    # options: member, expired, canceled
     Gibbon::Request.lists(@list_id).members(get_user_hash(user.email)).upsert(body: {email_address: user.email, status: "subscribed", merge_fields: {MEMBERSHIP: membership.downcase}})
   end
 
