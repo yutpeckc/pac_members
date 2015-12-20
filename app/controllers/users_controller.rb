@@ -5,7 +5,11 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    unless logged_in?
+      @user = User.new
+    else
+      redirect_to subscribe_path
+    end
   end
 
   # GET /users/1/edit
