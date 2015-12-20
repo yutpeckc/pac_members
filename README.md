@@ -56,7 +56,7 @@ To do
 * DONE - Modify new user method to create a random password for the user
 * DONE - Create "cancel subscription" method for admin dashboard (links to stripe as well)
 * DONE - Will users who we remove from subscription  get another email when they expire? - Added dont_remind field
-* Verify that you're not kicking manually added users to the "please subscribe" page! Provided they've already paid, you can make this part of the "add users" admin function
+* DONE - they'll be kicked there but the membership_expiration field will be present so it won't ask them to pay - Verify that you're not kicking manually added users to the "please subscribe" page! Provided they've already paid, you can make this part of the "add users" admin function
 * DONE - Verify that a users expiration will update itself if its autorenewing. Handled in expiration scanner
 * Walk through user flow again?
 * Remove random test account emails from Mailchimp
