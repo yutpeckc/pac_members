@@ -89,7 +89,7 @@ class UserMailer
     send_mail(user.email, subject, text)
   end
 
-  def event_code(user,event_name,code,event_url)
+  def send_event_code(user,event_name,code,event_url)
     subject = "Your event code for #{event_name} with the Pacific Club"
     text = %(Hey #{user.first_name},
 

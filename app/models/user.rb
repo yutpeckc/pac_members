@@ -68,4 +68,11 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def create_and_send_event_code(event_name,event_url)
+    code = User.random_md5_pwd
+    #insert mailchimp code
+    um = UserMailer.new
+    um.send_event_code(self,event_name,code,event_url)
+  end
 end

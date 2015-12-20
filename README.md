@@ -61,3 +61,4 @@ To do
 * Walk through user flow again?
 * Remove random test account emails from Mailchimp
 * Add "event code" email generation and automation. Do we want to track picatic events on our own backend?
+* Implement functionality for code email
