@@ -89,6 +89,24 @@ class UserMailer
     send_mail(user.email, subject, text)
   end
 
+  def event_code(user,event_name,code,event_url)
+    subject = "Your event code for #{event_name} with the Pacific Club"
+    text = %(Hey #{user.first_name},
+
+    Below is your personal coupon code for our next event. If you haven't already heard about it you can read more about it here: #{url}
+
+    When you reserve your ticket make sure to use the code below to get it free.
+
+    Code: #{code.email}
+
+    If you have any questions just let us know. Thanks!
+
+    The Pacific Club
+    )
+    
+    send_mail(user.email, subject, text)
+  end
+
   def send_mail(to,subject,text)
     puts to
     client = SendGrid::Client.new(api_user: ENV['SENDGRID_USERNAME'], api_key: ENV['SENDGRID_PASSWORD'])
