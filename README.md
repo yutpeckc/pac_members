@@ -8,7 +8,7 @@ To do
 * DONE-- Re-do routes to only use what you need
 * DONE-- Abstract out the functionality for the stripe charging into a service
 * DONE-- Add first and last name to sign up
-* NEED TO CONFIRM-- Auto email two weeks ahead of expiration - use "whenever" gem. 3 cases: on membership and will renew (link to cancel), off membership and will expire, off membership and has expired
+* DONE - scan function audited, and mailing tested with old email_q function-- Auto email two weeks ahead of expiration - use "whenever" gem. 3 cases: on membership and will renew (link to cancel), off membership and will expire, off membership and has expired
   * DONE-- Create Mailer
   * DONE-- Create functions to send separate emails
   * DONE-- Add method function to scan all users
@@ -22,7 +22,7 @@ To do
 * DONE -- Set up environment variables on heroku
 * Test payment on live server
 
-* Set up domain
+* DONE - Set up domain
 
 * DONE-- Add new fields to user
 	* membership_expiration date
