@@ -16,7 +16,7 @@ class Mailchimp
   end
 
   def add_user(user)
-    Gibbon::Request.lists(@list_id).members(get_user_hash(user.email)).upsert(body: {email_address: user.email, status: "subscribed", merge_fields: {FNAME: user.first_name, LNAME: user.last_name})
+    Gibbon::Request.lists(@list_id).members(get_user_hash(user.email)).upsert(body: {email_address: user.email, status: "subscribed", merge_fields: {FNAME: user.first_name, LNAME: user.last_name}})
   end
 
   def get_user_hash(email)
