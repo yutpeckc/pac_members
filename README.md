@@ -58,7 +58,8 @@ To do
 * DONE - Will users who we remove from subscription  get another email when they expire? - Added dont_remind field
 * DONE - they'll be kicked there but the membership_expiration field will be present so it won't ask them to pay - Verify that you're not kicking manually added users to the "please subscribe" page! Provided they've already paid, you can make this part of the "add users" admin function
 * DONE - Verify that a users expiration will update itself if its autorenewing. Handled in expiration scanner
-* Walk through user flow again?
-* Remove random test account emails from Mailchimp
+* DONE - Walk through user flow again?
+* DONE - seems like they weren't added, double check w/ Q's email that "add user" works -Remove random test account emails from Mailchimp
+* stripe plans
 * Add "event code" email generation and automation. Do we want to track picatic events on our own backend?
-* Implement functionality for code email
+* Implement functionality for code email events
