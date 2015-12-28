@@ -87,7 +87,7 @@ ActiveAdmin.register User do
       end
     end
     def permitted_params
-      params.permit user: [:email, :password, :password_confirmation, :membership_expiration, :plan, :first_name,:last_name, :phone_number, :street_address, :city, :province, :country, :postal_code]
+      params.permit user: [:email, :password, :password_confirmation, :membership_expiration, :plan, :plan_id, :first_name,:last_name, :phone_number, :street_address, :city, :province, :country, :postal_code]
     end    
   end  
 
