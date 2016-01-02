@@ -1,6 +1,6 @@
 class ChargesController < ApplicationController
   def new
-    if current_user.current_user.membership_expiration.present? && current_user.plan_id.present?
+    if current_user.membership_expiration.present? && current_user.plan_id.present?
       @plans = []
       @plans << current_user.plan_id
     else
