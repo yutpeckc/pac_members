@@ -1,6 +1,11 @@
 class ChargesController < ApplicationController
   def new
-    @plans = Plan.all.where(active: true)
+    if current_user.current_user.membership_expiration.present? && current_user.plan_id.present?
+      @plans = []
+      @plans << current_user.plan_id
+    else
+      @plans = Plan.all.where(active: true)
+    end
     @size = 4
     case @plans.count
     when 1
