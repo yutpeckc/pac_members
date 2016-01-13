@@ -1,6 +1,74 @@
 first_name,last_name,email,created,plan,phone,street,city,province,country,postal_code
-Tony,Kwan,tony.kwan.me@gmail.com,11/28/2014,3,6045623830,,,,,
-Charan,Sidhu,charan@otezs.com,12/8/2014,3,604.838.5800,,,,,
-Walker,Patton,walkerpatton@hotmail.com,12/15/2014,3,604 722 3511,,,,,
-Rita,Bennett,rita@viralogix.ca,12/17/2014,3,604-239-0794,,,,,
-Matt,MacInnis,mmacinnis@national.ca,1/9/2015,2,7786281703,,,,,
+Aaron,Ui,aaron.ui@fsfinancial.ca,12/8/2014,3,6047269276,,,,,
+Frances,Hui,frances.hui.events@gmail.com,12/9/2014,3,6047811280,,,,,
+Dai,Manuel,daimanuel@daimanuel.com,12/10/2014,3,6047877938,,,,,
+Dan,Hebert,danhebert@telus.net,12/10/2014,3,,,,,,
+Jonathan,Weisman,jjweisman@gmail.com,1/9/2015,2,778-899-5665,,,,,
+Brad,Wolanski,brad_wolanski@hotmail.com,1/14/2015,2,778 887 8029,,,,,
+Francis,Piche,francis@francispiche.com,1/14/2015,2,778 558-9948,,,,,
+Jay,Snyder,jsnyder4@gmail.com,1/20/2015,2,,,,,,
+Rosana,Wedenig,rwedenig@farris.com,1/20/2015,2,,,,,,
+Chris,Ferronato,chris@dirkcadevuyst.com,1/21/2015,2,604-294-9263,,,,,
+Samantha,Kwong,samantha@opusrealty.ca,1/21/2015,2,604-783-8011,,,,,
+Ashmita,Arora,Ashmita_arora@outlook.com,1/24/2015,2,(604)600-8061,,,,,
+Nik,Cheng,nik.h.cheng@gmail.com,1/28/2015,2,7789919655,,,,,
+Paul,Xiong,paulxiong83@hotmail.com,1/29/2015,2,6045517833,,,,,
+Annie,Li,annieli2011@gmail.com,1/30/2015,2,604-369-8577,,,,,
+Louis,Blais,louisblais1@gmail.com,1/30/2015,2,7789385684,,,,,
+Alex,Bayer,alexbayer06@gmail.com,2/5/2015,2,604-771-2624,,,,,
+Andrew,White,whitewhite75@gmail.com,2/6/2015,2,6047271278,,,,,
+Nicholas,Burrows,nicholasburrows@bty.com,2/16/2015,2,778-990-2119,,,,,
+Nomi,Malik,nmalik@sutton.com,2/16/2015,2,778-865-9585,,,,,
+ahmed,rageh,ahmed.a.elnady@gmail.com,2/18/2015,2,7788887164,,,,,
+Jeff,Myers,jeff_myers@cooperators.ca,2/19/2015,2,604-671-8424,,,,,
+Hishamm,Badawy,hishamobadawy@gmail.com,2/22/2015,2,,,,,,
+Peter,Kim,peter.kim101@gmail.com,4/4/2015,2,,305 - 1082 Seymour St ,Vancouver,BC,Canada,v6b1x9
+Faizal,Mitha,fmitha@es3is.com,4/10/2015,2,604-999-9353,220 676 W 6th Ave ,Vancouver,BC,Canada,V5Z 1A3
+Kimberly,Stringer,kimberly@drkimberlystringer.com,4/14/2015,2,778-232-8095,2805 - 455 Beach Crescent ,Vancouver,BC,Canada,V6Z 3E5
+Rustom,Burjorjee,rustom_burjorjee@sfu.ca,4/14/2015,2,778-772-4648,"288, 18th D Main, 6th Block, Koramangala",Bangalore,Karnataka,India,560095
+Christina,Erl,christina@christinaerl.com,4/15/2015,2,778-386-0771,3793 Princess Ave ,North Vancouver,BC,Canada,V7N 2E6
+Shannen,McDonald,mcdonald.shannen@gmail.com,4/22/2015,2,604-516-9735,303-1635 East 4th Ave ,Vancouver,BC,Canada,V5N 1J7
+Abba,Shytermeja,abbashutermeja@gmail.com,4/23/2015,2,604-655-2141,,,,,
+Andrew,Seipp,andrew.seipp@telclarity.com,4/23/2015,2,604.670.0355,,,,,
+Anthony,Taylor,actaylor604@gmail.com,4/23/2015,2,778-895-5446,,,,,
+Vidura,Sahabandu,WindiesCC@yahoo.com,4/23/2015,2,,,,,,
+Yu-Hang,Li,Might be Challen Li ,4/23/2015,2,,,,,,
+Michael,Scott,mscott@bellalliance.ca,4/28/2015,2,778-996-3914,304-1726 West 11th Avenue ,Vancouver,BC,Canada,V6J 2C3
+Lexi,Chen,lexi.chen@rbc.com,5/7/2015,2,,202-8300 Park Road ,Richmond,BC,Canada,V6Y 2Y8
+Kevin,Chiu,kevinchiu78@gmail.com,5/22/2015,2,778-998-1606,3209-1008 Cambie St ,Vancouver,BC,Canada,V6B6J7
+Troy,Abromaitis,tabromaitis@gmail.com,5/29/2015,2,6048892791,4468 Moncton St ,Richmond,BC,Canada,V7E 3A9
+Samuel,Suk,suk.samuel@gmail.com,6/4/2015,2,604-363-2114,239 - 720 Queens Avenue ,New Westminster,BC,Canada,V3M 1L6
+Danielle,Hansen,danielle@fosterhansen.com,6/5/2015,2,604-355-1113,#407-1212 Howe St. ,Vancouver,BC,Canada,V6Z 2M9
+Priya,Gupta,priyagupta910@gmail.com,6/7/2015,2,778-889-5910,4320 Selkirk St ,Vancouver,BC,Canada,V6H 4B3
+Mike,Cochrane,mcochrane@powerland.ca,6/10/2015,2,604-306-1177,4768 Ranger Ave ,North Vancouver,BC,Canada,V7R 3M1
+Rhiannon,Foster,rhiannon@fosterhansen.com,6/12/2015,2,604-999-4587,345 Robson St Vancouver,Vancouver,BC,Canada,V6B 6b3
+Mwanza,Tshimbalanga,mwanza@icloud.com,6/17/2015,2,514-709-6057,811 Helmcken St Apt. 1006,Vancouver,BC,Canada,V6Z 1B1
+Milie,Taing,milie.taing@gmail.com,6/29/2015,2,778-316-8024,504-1445 Pendrell ,Vancouver,BC,Canada,v6g1s3
+Kevin,Menard,k.menard@novuscom.net,7/8/2015,2,6048051984,#508 - 1238 Richards St. ,Vancouver,BC,Canada,V6B6M6
+Naomi,Arbabi,naomi@naomiarbabi.com,7/9/2015,2,778-251-9877,802 - 1239 West Georgia Street ,Vancouver,BC,Canada,V6E 4R8
+Semira,Amiralai,semira.amiralai@gmail.com,7/17/2015,2,604-760-7079,15463 95A Avenue ,Surrey,BC,Canada,V3R7T1
+Jeffrey,Lee,jeffrey.lee@roberthalf.com,7/25/2015,2,,#26-2381 Argue St. ,Port Coquitlam,BC,Canada,V3C 6P9
+Timmy,Cheung,cheungtimmy@gmail.com,9/11/2015,2,778-389-6811,104-5151 Brighouse Way ,RICHMOND,BC,Canada,V7C 0A6
+Mo,Movassaghi,mo@valeriomoda.com,9/14/2015,2,604-720-6564,1806-788 richards st. ,Vancouver,BC,Canada,V6B 0C7
+Herbert,Locke,hlocke@telus.net,9/14/2015,2,604-230-6162,6055 Eagleridge Drive West Vancouver,West Vancouver,BC,Canada,V7W 1W7
+Gloria,Tong,gloria.m.tong@gmail.com,9/14/2015,2,604-916-7203,502 - 388 West 1st Avenue ,Vancouver,BC,Canada,V5Y 0B2
+Rena,Zhou,zhou.rena@gmail.com,9/16/2015,2,778-865-9466,1468 Dogwood Avenue ,Vancouver,BC,Canada,V6P1K1
+Matthew,Selwood,matthewselwood@gmail.com,9/16/2015,2,604-442-4126,4250 West 9th Avenue ,Vancouver,BC,Canada,V6R 2C5
+Richard,Zalaudek,Rich@RichZ.ca,9/17/2015,2,604-727-4303,11180 Bird Road ,Richmond,BC,Canada,V6X 1N8
+Charlsy,Dobell,charlsy@dobell.net,9/18/2015,2,604-720-0454,503-41 Alexander St ,Vancouver,BC,Canada,V6A1B2
+Mahshid,Amini,amini@rahnema.com,10/7/2015,2,778-989-5257,701 Sylvan Avenue ,North Vancouver,BC,Canada,V7R 2E8
+Brad,Katronis,brad.katronis@gmail.com,10/7/2015,2,604-614-6402,13353 Woodcrest Dr ,Surrey,BC,Canada,v4p1w4
+Jenna,Earnshaw,jenna@taskiapp.com,11/4/2015,2,604-725-1304,17 430 East 8th Avenue ,Vancouver,BC,Canada,V5T 1S7
+Deepak,Arora,deepakarora2044@gmail.com,11/17/2015,2,604-782-9174,610 Granville Street ,Vancouver,BC,Canada,V6C 3T3
+Zuka,Abaza,zuka.abaza@gmail.com,11/24/2015,2,,101-6540 Burlington Ave. ,Burnaby,BC,Canada,V5H 4G3
+Sheena,Hoskin,sheena.hoskin@td.com,12/2/2015,2,604-654-3528,2nd Floor 700 West Georgia,Vancouver,BC,Canada,v7y 1a2
+Donovan,Tildesley,dtildesley@buntaininsurance.com,12/4/2015,2,,3970 W. 22nd Ave. ,Vancouver,BC,Canada,V6s 1K1
+Felix,Huang,felixhuang32@gmail.com,12/4/2015,2,,4393 Wildflower Lane ,Vancouver,BC,Canada,V8X 5H1
+Pei-Ti,Tan,pattytan1992@gmail.com,12/4/2015,2,,4393 Wildflower Lane ,Vancouver,BC,Canada,V8X 5H1
+Andrew,Saxton,andrewsaxtonjr@hotmail.com,12/15/2014,3,,,,,,
+Kevin,Day,kevin@riskebiz.com,12/15/2014,3,,,,,,
+Donovan,Tildsley,dtildesley@buntaininsurance.com,12/3/2015,2,604-803-3094,,,,,
+Felix ,Huang,felixhuang32@gmail.com,12/3/2015,2,604-728-7107,,,,,
+Pei-Ti,Tan,pattytan1992@gmail.com,12/3/2015,2,604-710-5981,,,,,
+Vikram,Kuman,vkumar@unilogik.com,12/11/2015,2,(604) 831-8170,,,,,
+Mohammed,Shakir,moe.shakir.1@gmail.com,12/31/2015,2,2505757196,,,,,
