@@ -51,7 +51,7 @@ ActiveAdmin.register User do
       f.input :password, required: false
       f.input :password_confirmation, required: false
       f.input :membership_expiration, required: true
-      f.input :plan, collection: Plan.where(active: true), required: true
+      f.input :plan, required: true
       f.input :first_name
       f.input :last_name
       f.input :phone_number
