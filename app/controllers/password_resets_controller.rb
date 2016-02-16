@@ -10,9 +10,9 @@ skip_before_filter :require_contact_info
   # you get here when the user entered his email in the reset password form and submitted it.
   def create 
     @user = User.find_by_email(params[:email])
-
     # This line sends an email to the user with instructions on how to reset their password (a url with a random token)
-    @user.deliver_reset_password_instructions! if @user
+    um = UserMailer.new
+    um.reset_password_email(@user) if @user
 
     # Tell the user instructions have been sent whether or not email was found.
     # This is to not leak information to attackers about which emails exist in the system.

@@ -1,7 +1,7 @@
 class UserMailer
   # uses SendGrid
   def reset_password_email(user)
-    url = Rails.application.routes.url_helperspassword_reset_url(user.reset_password_token)
+    url = Rails.application.routes.url_helpers.password_reset_url(user.reset_password_token, host: "http://members.thepacificclub.com")
 
     subject = "Your Pacific Club password has been reset"
     text = %(Hey #{user.first_name}
