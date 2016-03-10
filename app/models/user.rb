@@ -15,18 +15,18 @@ class User < ActiveRecord::Base
     um = UserMailer.new
 
     all.each do |u|
-      if within_two_weeks(u.membership_expiration) && u.auto_renew && !u.dont_remind
+      if u.expires_in_two_weeks && u.auto_renew && !u.dont_remind
         #subscriber about to renew
         um.two_week_reminder_renewing(u)
-      elsif within_two_weeks(u.membership_expiration) && !u.auto_renew
+      elsif u.expires_in_two_weeks && !u.auto_renew
         #non subscriber that needs to renew
         um.two_week_reminder_non_renewing(u)
-      elsif within_one_day(u.membership_expiration) && !u.auto_renew
+      elsif u.expires_in_one_day && !u.auto_renew
         #member who has expired either way
         um.expiration_notice(u)
         m = Mailchimp.new
         m.change_membership(u,"expired")
-      elsif within_one_day(u.membership_expiration) && u.auto_renew
+      elsif u.expires_in_one_day && u.auto_renew
         #member has rolled over and needs to have expiration date moved out
         expiration = u.membership_expiration + 1.year
         u.update(membership_expiration: expiration)
@@ -69,20 +69,28 @@ class User < ActiveRecord::Base
     end
   end
 
+  def expires_in_two_weeks
+    time = membership_expiration
+    if time.present?
+      (time < 2.weeks.from_now) && (time > (2.weeks.from_now - 1.day))
+    else
+      false
+    end
+  end
+
+  def expires_in_one_day
+    time = membership_expiration
+    if time.present?
+      (time < Time.now) && (time > (Time.now - 1.day))
+    else
+      false
+    end
+  end
+
   def create_and_send_event_code(event_name,event_url)
     code = User.random_md5_pwd
     #insert mailchimp code
     um = UserMailer.new
     um.send_event_code(self,event_name,code,event_url)
-  end
-
-  private
-
-  def within_two_weeks(time)
-    (time < 2.weeks.from_now) && (time > (2.weeks.from_now - 1.day))
-  end
-
-  def within_one_day(time)
-    (time < Time.now) && (time > (Time.now - 1.day))
   end
 end
