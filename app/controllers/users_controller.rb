@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :contact_info, :contact_info_update]
   skip_before_filter :require_login, only: [:index, :new, :create]
-  skip_before_filter :require_contact_info, only: [:index, :new, :create, :contact_info, :contact_info_update]
 
   # GET /users/new
   def new
@@ -31,7 +30,7 @@ class UsersController < ApplicationController
         m = Mailchimp.new
         m.add_user(@user)
 
-        format.html { redirect_to contact_info_path}
+        format.html { redirect_to subscribe_path}
         # format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
