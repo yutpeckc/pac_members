@@ -38,7 +38,6 @@ class UserMailer
   end
 
   def two_week_reminder_non_renewing(user)
-    byebug
     subject = "Your Pacific Club Membership is expiring soon"
     expiration = user.membership_expiration.strftime("%B #{user.membership_expiration.day.ordinalize}, %Y")
     text = %(Hey #{user.first_name},
