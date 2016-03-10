@@ -17,13 +17,13 @@ class User < ActiveRecord::Base
     all.each do |u|
       if within_two_weeks(u.membership_expiration) && u.auto_renew && !u.dont_remind
         #subscriber about to renew
-        um.two_week_reminder_renewing(u).deliver_now
+        um.two_week_reminder_renewing(u)
       elsif within_two_weeks(u.membership_expiration) && !u.auto_renew
         #non subscriber that needs to renew
-        um.two_week_reminder_non_renewing(u).deliver_now
+        um.two_week_reminder_non_renewing(u)
       elsif within_one_day(u.membership_expiration) && !u.auto_renew
         #member who has expired either way
-        um.expiration_notice(u).deliver_now
+        um.expiration_notice(u)
         m = Mailchimp.new
         m.change_membership(u,"expired")
       elsif within_one_day(u.membership_expiration) && u.auto_renew

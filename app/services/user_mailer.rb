@@ -34,7 +34,7 @@ class UserMailer
     The Pacific Club    
     )
     
-    send_mail(user.email, subject, text)        
+    send_mail(user.email, subject, text)
   end
 
   def two_week_reminder_non_renewing(user)
@@ -69,7 +69,7 @@ class UserMailer
     The Pacific Club
     )
     
-    send_mail(user.email, subject, text)    
+    send_mail(user.email, subject, text, "rita@viralogix.ca")
   end
 
   def created_account(user,pwd)
@@ -109,7 +109,7 @@ class UserMailer
     send_mail(user.email, subject, text)
   end
 
-  def send_mail(to,subject,text)
+  def send_mail(to,subject,text, cc = nil)
     puts to
     client = SendGrid::Client.new(api_user: ENV['SENDGRID_USERNAME'], api_key: ENV['SENDGRID_PASSWORD'])
     mail = SendGrid::Mail.new do |m|
@@ -118,6 +118,7 @@ class UserMailer
       m.from_name = "The Pacific Club"
       m.subject = subject
       m.text = text
+      m.cc = cc
     end
     # puts mail.inspect
     res = client.send(mail)
