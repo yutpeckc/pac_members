@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    @pwd_text = :password
+    @pwd_conf_text = :password_confirmation
     unless logged_in?
       @user = User.new
     else
@@ -13,7 +15,8 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-
+    @pwd_text = "Password (required)"
+    @pwd_conf_text = "Password Confirmation (required)"
   end
 
   # POST /users
