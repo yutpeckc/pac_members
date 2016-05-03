@@ -44,7 +44,7 @@ class UserMailer
 
     This is just a friendly reminder that your membership is set to expire on #{expiration}. You don't need to do anything right now - we just wanted to let you know ahead of time. 
 
-    When your membership does expire we'll send you email with instructions on how to renew. 
+    When your membership does expire we'll send you an email with instructions on how to renew. 
 
     Thanks!
 
