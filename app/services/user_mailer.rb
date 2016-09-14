@@ -73,7 +73,7 @@ class UserMailer
     The Pacific Club
     )
     
-    send_mail(user.email, subject, text, "rita@viralogix.ca")
+    send_mail(user.email, subject, text, "info@thepacificclub.com")
   end
 
   def created_account(user,pwd)
