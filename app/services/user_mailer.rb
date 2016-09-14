@@ -1,9 +1,14 @@
 class UserMailer
   # uses SendGrid
+
+  def initialize
+    @host = Rails.application.config.action_mailer.default_url_options[:host]
+  end
+
   def reset_password_email(user)
     user.generate_reset_password_token!
 
-    url = Rails.application.routes.url_helpers.password_reset_url(user.reset_password_token, host: "http://members.thepacificclub.com")
+    url = Rails.application.routes.url_helpers.password_reset_url(user.reset_password_token, host: @host)
 
     subject = "Your Pacific Club password has been reset"
     text = %(Hey #{user.first_name}
@@ -56,7 +61,7 @@ class UserMailer
 
   def expiration_notice(user)
     subject = "Your Pacific Club Membership has expired"
-    renew_path = Rails.application.routes.url_helpers.renew_url
+    renew_path = Rails.application.routes.url_helpers.renew_url(host: @host)
     text = %(Hey #{user.first_name},
 
     It seems like your membership has expired! To renew just follow this link #{renew_path}. 
@@ -68,7 +73,7 @@ class UserMailer
     The Pacific Club
     )
     
-    send_mail(user.email, subject, text, "rita@viralogix.ca")
+    send_mail(user.email, subject, text, "qdamji+pactry@gmail.com")
   end
 
   def created_account(user,pwd)
@@ -109,7 +114,6 @@ class UserMailer
   end
 
   def send_mail(to,subject,text, cc = nil)
-    puts to
     client = SendGrid::Client.new(api_user: ENV['SENDGRID_USERNAME'], api_key: ENV['SENDGRID_PASSWORD'])
     mail = SendGrid::Mail.new do |m|
       m.to = to
@@ -119,7 +123,7 @@ class UserMailer
       m.text = text
       m.cc = cc
     end
-    # puts mail.inspect
+    puts mail.inspect
     res = client.send(mail)
     puts res.body
   end
