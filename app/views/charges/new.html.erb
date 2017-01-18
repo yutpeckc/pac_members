@@ -30,7 +30,9 @@
           </script>
         </div>
         <div>
+          <% unless current_user.jr_member %>
           Auto-renew Membership <%= check_box_tag "auto_bill", true, true %>
+          <% end %>  
         </div>
       <% end %>
     </div>
