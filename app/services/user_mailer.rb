@@ -95,6 +95,28 @@ class UserMailer
     send_mail(user.email, subject, text)
   end
 
+  def jr_account_created(user,pwd)
+    subject = "Your Pacific Club Jr. Membership Login Details"
+    text = %(Hey #{user.first_name},
+
+    Congrats on being invited to join The Pacific Club as one of our Jr. Members! There are just two final steps before completing your admission:
+
+    1. Use the credentials below to login (http://members.thepacificclub.com/login) and enter your payment to pay your membership fee.
+    2. Change your password! We've created a temporary one for you below, but highly suggest you change it the first time you log in.
+
+    Here are your temporary log in details:
+
+    Email: #{user.email}
+    Password: #{pwd}
+
+    If you have any questions just let us know, and welcome to the club!
+
+    The Pacific Club
+    )
+    
+    send_mail(user.email, subject, text)
+  end
+
   def send_event_code(user,event_name,code,event_url)
     subject = "Your event code for #{event_name} with the Pacific Club"
     text = %(Hey #{user.first_name},

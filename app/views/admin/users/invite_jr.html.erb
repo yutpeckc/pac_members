@@ -1,0 +1,30 @@
+<div id="active_admin_content" class="without_sidebar">
+  <div id="main_content_wrapper">
+    <div id="main_content">
+      <%= form_tag({controller: "admin/users", action: "invite_jr"}, {class: "formtastic"}) do %>
+        <fieldset class="inputs">
+          <legend>
+            <span>Jr Member Info</span>
+          </legend>
+          <ol>
+            <li>
+              <%= label_tag(:first_name, "First Name:") %>
+              <%= text_field_tag(:first_name) %>
+            </li>            
+            <li>
+              <%= label_tag(:last_name, "Last Name:") %>
+              <%= text_field_tag(:last_name) %>
+            </li>            
+            <li>
+              <%= label_tag(:user_email, "User Email:") %>
+              <%= text_field_tag(:user_email) %>
+            </li>
+          </ol>
+        </fieldset>
+        <fieldset class="actions">
+          <%= submit_tag("Invite") %>
+        </fieldset>
+      <% end %>
+    </div>
+  </div>
+</div>

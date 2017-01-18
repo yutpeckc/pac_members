@@ -26,9 +26,19 @@ ActiveAdmin.register User do
     end
   end  
 
+  collection_action :invite_jr do
+  end 
+
+  collection_action :invite_jr, method: :post do
+  end
+
   action_item :cancel_subscription, only: :show do
     link_to 'Cancel Subscription', cancel_sub_admin_users_path(id: params[:id]), data: { confirm: "Are you sure?" }
   end  
+
+  action_item :invite_jr, only: :index do
+    link_to "Invite Jr Member", invite_jr_admin_users_path
+  end
 
   filter :email
   filter :first_name
@@ -88,6 +98,30 @@ ActiveAdmin.register User do
         end
       end
     end
+
+    def invite_jr
+      if params[:user_email].present?
+        u = User.new
+        
+        u.email = params[:user_email]
+        u.first_name = params[:first_name]
+        u.last_name = params[:last_name]
+        u.jr_member = true
+        
+        pwd = User.random_md5_pwd
+        u.password = pwd
+        u.password_confirmation = pwd
+
+        if u.save
+          um = UserMailer.new
+          um.jr_account_created(u,pwd)
+          redirect_to admin_users_path, notice: "User Invited!"
+        else
+          redirect_to admin_users_path, alert: "Error inviting user"
+        end
+      end
+    end
+
     def permitted_params
       params.permit user: [:email, :password, :password_confirmation, :membership_expiration, :plan, :plan_id, :first_name,:last_name, :phone_number, :street_address, :city, :province, :country, :postal_code, :jr_member]
     end    
