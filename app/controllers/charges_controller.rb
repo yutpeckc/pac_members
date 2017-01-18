@@ -1,20 +1,26 @@
 class ChargesController < ApplicationController
   def new
-    if current_user.membership_expiration.present? && current_user.plan_id.present?
-      @plans = []
-      @plans << Plan.find(current_user.plan_id)
-    else
-      @plans = Plan.all.where(active: true)
-    end
-
-    @size = 4
-    case @plans.count
-    when 1
+    if current_user.jr_member
+      @plans = Plan.all.where(plan_stripe_id: "jr_membership")
       @offset = 4
-    when 2
-      @offset = 2
+      @size = 4
     else
-      @offset = 0
+      if current_user.membership_expiration.present? && current_user.plan_id.present?
+        @plans = []
+        @plans << Plan.find(current_user.plan_id)
+      else
+        @plans = Plan.all.where(active: true)
+      end
+
+      @size = 4
+      case @plans.count
+      when 1
+        @offset = 4
+      when 2
+        @offset = 2
+      else
+        @offset = 0
+      end
     end
   end
 

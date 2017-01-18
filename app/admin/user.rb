@@ -11,6 +11,7 @@ ActiveAdmin.register User do
     column :auto_renew
     column :membership_expiration
     column :plan_id
+    column :jr_member
     column :created_at
     column :updated_at
     actions
@@ -52,6 +53,7 @@ ActiveAdmin.register User do
       f.input :password_confirmation, required: false
       f.input :membership_expiration, required: true
       f.input :plan, required: true
+      f.input :jr_member
       f.input :first_name
       f.input :last_name
       f.input :phone_number
@@ -87,7 +89,7 @@ ActiveAdmin.register User do
       end
     end
     def permitted_params
-      params.permit user: [:email, :password, :password_confirmation, :membership_expiration, :plan, :plan_id, :first_name,:last_name, :phone_number, :street_address, :city, :province, :country, :postal_code]
+      params.permit user: [:email, :password, :password_confirmation, :membership_expiration, :plan, :plan_id, :first_name,:last_name, :phone_number, :street_address, :city, :province, :country, :postal_code, :jr_member]
     end    
   end  
 
