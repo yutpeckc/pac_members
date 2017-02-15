@@ -50,12 +50,11 @@ ActiveAdmin.register User do
 
   form do |f|
     panel 'Instructions' do
-      %(To CREATE a User: a new user you only *need* to enter their email, first and last name, expiration, and plan_id. The system will generate a random password. Remember - the membership expiration is 1 YEAR after they joined.
-
-        To EDIT a User: You can edit pretty much everything and anything, but can change one thing at a time (no need to enter passwords either!)
-
-        #{params.inspect} 
-        )
+      para "To CREATE a User ---> For a new user you only *need* to enter their email, first and last name, expiration, and plan_id. The system will generate a random password. Remember - the membership expiration is 1 YEAR after they joined."
+      para "----------------"
+      para "To EDIT a User ---> You can edit pretty much everything and anything, but can change one thing at a time (no need to enter passwords either!)"      
+      para "----------------"
+      para "To GRANDFATHER a User onto an old plan ---> You can do one of two things. You can create a user (like it says above), or have them sign up and stop before they're about to pay. Then, go in and edit their user account: add the plan_id for the appropriate plan, and set the expiration date to any time in the past. They should see the old plan when they log in now."       
     end    
     f.inputs "User Details" do
       f.input :email
