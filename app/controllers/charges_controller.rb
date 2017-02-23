@@ -35,8 +35,8 @@ class ChargesController < ApplicationController
       current_user.update(plan_id: plan.id, membership_expiration: 1.year.from_now, stripe_customer_id: customer.id, auto_renew: false, dont_remind: false)
     end
 
-    m = Mailchimp.new
-    m.change_membership(current_user,"member")
+    # m = Mailchimp.new
+    # m.change_membership(current_user,"member")
   
     rescue Stripe::CardError => e
       flash[:error] = e.message

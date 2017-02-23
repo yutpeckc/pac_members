@@ -24,8 +24,8 @@ class User < ActiveRecord::Base
       elsif u.expires_in_one_day && !u.auto_renew
         #member who has expired either way
         um.expiration_notice(u)
-        m = Mailchimp.new
-        m.change_membership(u,"expired")
+        # m = Mailchimp.new
+        # m.change_membership(u,"expired")
       elsif u.expires_in_one_day && u.auto_renew
         #member has rolled over and needs to have expiration date moved out
         expiration = u.membership_expiration + 1.year
@@ -52,8 +52,8 @@ class User < ActiveRecord::Base
       #cancel on stripe, proceed if it works
       if StripeService.cancel_subscription(self)    
         #update mailchimp membership
-        m = Mailchimp.new
-        m.change_membership(self,"canceled")
+        # m = Mailchimp.new
+        # m.change_membership(self,"canceled")
         #turn off auto-renew
         #add "do not remind" flag if cancelled
         #chosen to assume that if they go out of their way to ask us to cancel, that they really don't want to be a part of this anymore and would not appreciate additional emails

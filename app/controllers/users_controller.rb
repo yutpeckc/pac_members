@@ -28,8 +28,8 @@ class UsersController < ApplicationController
         # flash[:success] = "You are successfully logged in!"
         # redirect_to @user
         # redirect_to(:users, notice: 'User was successfully created')
-        m = Mailchimp.new
-        m.add_user(@user)
+        # m = Mailchimp.new
+        # m.add_user(@user)
 
         format.html { redirect_to subscribe_path}
         # format.json { render :show, status: :created, location: @user }
@@ -48,8 +48,8 @@ class UsersController < ApplicationController
 
     if @user.update(user_params)
       if different_email
-        m = Mailchimp.new
-        m.change_email(old_email,@user.email)
+        # m = Mailchimp.new
+        # m.change_email(old_email,@user.email)
       end
       redirect_to :user, notice: 'Updated - thanks!.'
     else
